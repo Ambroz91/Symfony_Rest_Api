@@ -19,32 +19,30 @@ class CustomerRepository extends ServiceEntityRepository
         parent::__construct($registry, Customer::class);
     }
 
-    // /**
-    //  * @return Customer[] Returns an array of Customer objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+    public function saveCustomer($firstName, $lastName, $email, $phoneNumber){
 
-    /*
-    public function findOneBySomeField($value): ?Customer
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $newCustomer = new Customer();
+
+        $newCustomer
+            ->setFirstName($firstName)
+            ->setLastName($lastName)
+            ->setEmail($email)
+            ->setPhoneNumber($phoneNumber);
+
+        $this->_em->persist($newCustomer);
+        $this->_em->flush();
     }
-    */
+
+   public function updateCustomer(Customer $customer){
+
+        $this->_em->persist($customer);
+        $this->_em->flush();
+
+        return $customer;
+   }
+
+   public function deleteCustomer(Customer $customer){
+        $this->_em->remove($customer);
+        $this->_em->flush();
+   }
 }

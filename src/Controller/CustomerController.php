@@ -44,7 +44,7 @@ class CustomerController extends AbstractController
     }
 
     /**
-     * @Route ("/customers/get/{id}", name="get_costomer", methods={"GET"})
+     * @Route ("/customer/get/{id}", name="get_costomer", methods={"GET"})
      */
     public function getCustomer($id) :JsonResponse{
 
@@ -64,7 +64,7 @@ class CustomerController extends AbstractController
     }
 
     /**
-     * @Route ("/customers/get_all", name="get_all_costomers", methods={"GET"})
+     * @Route ("/customer/get_all", name="get_all_costomers", methods={"GET"})
      */
     public function getAllCustomers() :JsonResponse{
 
@@ -87,7 +87,7 @@ class CustomerController extends AbstractController
     }
 
     /**
-     * @Route ("/customers/update/{id}", name="update_customer", methods={"PUT"})
+     * @Route ("/customer/update/{id}", name="update_customer", methods={"PUT"})
      * @param $id
      * @param Request $request
      * @return JsonResponse
@@ -110,7 +110,7 @@ class CustomerController extends AbstractController
     }
 
     /**
-     * @Route ("/customers/delete/{id}", name="delete_customer", methods={"DELETE"})
+     * @Route ("/customer/delete/{id}", name="delete_customer", methods={"DELETE"})
      * @param $id
      * @return JsonResponse
      */
